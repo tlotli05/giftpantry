@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Contact · The Gift Pantry & Florist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #fcf9f8;
+            color: #1e1a18;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        :root {
+            --pink: #f0d6d2;
+            --pink-light: #f8eae7;
+            --pink-medium: #e8c8c2;
+            --pink-accent: #dbb4ae;
+            --pink-deep: #c9a39c;
+            --pink-border: #e6d0cc;
+            --pink-strong: #e8b4b4;
+            --charcoal: #1e1a18;
+            --white: #ffffff;
+            --radius: 32px;
+            --radius-sm: 18px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 56px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== SEQUENTIAL FADE-IN ANIMATION ===== */
+        .seq-item {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: seqFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .seq-item:nth-child(1) { animation-delay: 0.05s; }
+        .seq-item:nth-child(2) { animation-delay: 0.10s; }
+        .seq-item:nth-child(3) { animation-delay: 0.15s; }
+        .seq-item:nth-child(4) { animation-delay: 0.20s; }
+        .seq-item:nth-child(5) { animation-delay: 0.25s; }
+        .seq-item:nth-child(6) { animation-delay: 0.30s; }
+        .seq-item:nth-child(7) { animation-delay: 0.35s; }
+        .seq-item:nth-child(8) { animation-delay: 0.40s; }
+        .seq-item:nth-child(9) { animation-delay: 0.45s; }
+        .seq-item:nth-child(10) { animation-delay: 0.50s; }
+        .seq-item:nth-child(11) { animation-delay: 0.55s; }
+        .seq-item:nth-child(12) { animation-delay: 0.60s; }
+        .seq-item:nth-child(13) { animation-delay: 0.65s; }
+        .seq-item:nth-child(14) { animation-delay: 0.70s; }
+        .seq-item:nth-child(15) { animation-delay: 0.75s; }
+        .seq-item:nth-child(16) { animation-delay: 0.80s; }
+        .seq-item:nth-child(17) { animation-delay: 0.85s; }
+        .seq-item:nth-child(18) { animation-delay: 0.90s; }
+
+        @keyframes seqFadeUp {
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== ADDITIONAL ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-icon {
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        @keyframes scaleIn {
+            0% { opacity: 0; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .scale-item {
+            opacity: 0;
+            animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .scale-item:nth-child(1) { animation-delay: 0.05s; }
+        .scale-item:nth-child(2) { animation-delay: 0.12s; }
+        .scale-item:nth-child(3) { animation-delay: 0.19s; }
+        .scale-item:nth-child(4) { animation-delay: 0.26s; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(230, 208, 204, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: 0.3s;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            max-height: 42px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.04));
+        }
+        .nav-links {
+            display: none;
+            gap: 2.6rem;
+            font-weight: 450;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            color: #2a2522;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-strong);
+            transition: 0.3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-wa {
+            background: var(--pink-strong);
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.25s;
+            border: 1px solid var(--pink-border);
+            color: #1e1a18;
+        }
+        .nav-wa i {
+            color: #1e1a18;
+        }
+        .nav-wa:hover {
+            background: var(--pink-medium);
+            transform: scale(1.03);
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        .hamburger {
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+        .hamburger:hover {
+            background: var(--pink-light);
+        }
+        .hamburger .fa-times {
+            display: none;
+        }
+        .hamburger.open .fa-bars {
+            display: none;
+        }
+        .hamburger.open .fa-times {
+            display: inline;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            padding: 20px 24px 28px;
+            border-bottom: 1px solid var(--pink-border);
+        }
+        .mobile-menu.open {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 14px 0;
+            font-weight: 450;
+            border-bottom: 1px solid #f3e6e2;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            border-radius: 0;
+            color: #1e1a18;
+        }
+        .mobile-menu a i {
+            color: var(--pink-strong);
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        .mobile-menu a:hover {
+            color: var(--pink-accent);
+            padding-left: 12px;
+        }
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-dark {
+            background: var(--charcoal);
+            color: white;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .btn-dark:hover {
+            background: #2f2a27;
+            transform: scale(0.97);
+        }
+        .btn-pink {
+            background: var(--pink-strong);
+            color: #1e1a18;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .btn-pink:hover {
+            background: var(--pink-medium);
+            transform: scale(0.97);
+        }
+        .btn-wa-large {
+            background: #25d366;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            border: none;
+            font-size: 1.05rem;
+        }
+        .btn-wa-large:hover {
+            background: #1ebe5c;
+            transform: scale(1.03);
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--pink-strong);
+            border-radius: 60px;
+            font-weight: 500;
+            transition: 0.3s;
+            color: #1e1a18;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--pink-light);
+            transform: scale(1.02);
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.35);
+            z-index: 100;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .float-wa:hover {
+            transform: scale(1.08) rotate(-4deg);
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            padding: 40px 0 16px;
+            text-align: center;
+            position: relative;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--pink-strong), transparent);
+            border-radius: 4px;
+        }
+        .page-hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1e1a18;
+        }
+        .page-hero h1 .pink-highlight {
+            color: var(--pink-strong);
+        }
+        .page-hero p {
+            color: #4a403c;
+            font-weight: 350;
+            margin-top: 8px;
+            font-size: 1.05rem;
+        }
+
+        /* ===== ORDER NOW SECTION ===== */
+        .order-section {
+            background: linear-gradient(145deg, var(--pink-light), white);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid var(--pink-border);
+            margin-bottom: 32px;
+        }
+        .order-section h2 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            letter-spacing: -0.01em;
+            color: #1e1a18;
+        }
+        .order-section p {
+            color: #4a403c;
+            margin: 12px 0 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 350;
+        }
+        .order-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .order-option {
+            background: white;
+            padding: 18px 28px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--pink-border);
+            min-width: 180px;
+            transition: 0.3s;
+        }
+        .order-option:hover {
+            border-color: var(--pink-strong);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        .order-option i {
+            color: var(--pink-strong);
+            font-size: 1.4rem;
+        }
+        .order-option p {
+            font-weight: 500;
+            margin-top: 4px;
+            color: #1e1a18;
+        }
+        .order-option small {
+            font-size: 0.85rem;
+            color: #4a403c;
+            font-weight: 350;
+        }
+
+        /* ===== CONTACT INFO CARDS ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin: 28px 0 40px;
+        }
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            padding: 28px 30px;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--pink-strong);
+        }
+        .card-icon {
+            font-size: 2.4rem;
+            color: var(--pink-strong);
+            margin-bottom: 12px;
+        }
+        .card h3 {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            color: #1e1a18;
+        }
+        .card p {
+            color: #4a403c;
+            font-weight: 350;
+        }
+
+        /* ===== OPERATING HOURS ===== */
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            margin: 8px 0;
+        }
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0e8e5;
+        }
+        .hours-item .day {
+            font-weight: 500;
+            color: #1e1a18;
+        }
+        .hours-item .time {
+            color: #4a403c;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: #2a2522;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid var(--pink-border);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            background: white;
+            transition: 0.25s;
+            font-family: inherit;
+            color: #1e1a18;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pink-strong);
+            box-shadow: 0 0 0 4px rgba(232, 180, 180, 0.15);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ===== MAP ===== */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            margin: 16px 0 32px;
+            height: 340px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--pink-border);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            border-color: var(--pink-strong);
+        }
+        .faq-question {
+            padding: 18px 22px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+            background: white;
+            color: #1e1a18;
+        }
+        .faq-question:hover {
+            background: var(--pink-light);
+        }
+        .faq-question i {
+            transition: 0.3s;
+            color: var(--pink-strong);
+        }
+        .faq-question.open i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #4a403c;
+            display: none;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+        .faq-answer.open {
+            display: block;
+        }
+
+        /* ===== TERMS MODAL ===== */
+        .terms-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .terms-modal.open {
+            display: flex;
+        }
+        .terms-content {
+            background: white;
+            max-width: 720px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .terms-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terms-content::-webkit-scrollbar-track {
+            background: #f0e8e5;
+            border-radius: 10px;
+        }
+        .terms-content::-webkit-scrollbar-thumb {
+            background: var(--pink-strong);
+            border-radius: 10px;
+        }
+        .terms-content h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #1e1a18;
+        }
+        .terms-content h3 {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            color: #1e1a18;
+        }
+        .terms-content p {
+            color: #4a403c;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .close-modal {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: var(--pink-light);
+            border: none;
+            font-size: 1.4rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            z-index: 10;
+        }
+        .close-modal:hover {
+            background: var(--pink-strong);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: white;
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--pink-border);
+            margin-top: 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+        .footer h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #1e1a18;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .footer-links a {
+            color: #4a403c;
+            font-weight: 350;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--pink-strong);
+            padding-left: 4px;
+        }
+        .footer-social i {
+            font-size: 1.4rem;
+            margin-right: 18px;
+            color: #1e1a18;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .footer-social i:hover {
+            color: var(--pink-strong);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid #f0e8e5;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #5a4a46;
+        }
+        .footer-bottom .developer-credit {
+            color: #4a403c;
+            transition: 0.3s;
+        }
+        .footer-bottom .developer-credit:hover {
+            color: var(--pink-strong);
+        }
+        .footer-bottom .developer-credit a {
+            color: var(--pink-strong);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .footer-bottom .developer-credit a:hover {
+            color: var(--pink-deep);
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .hamburger { display: none; }
+            .page-hero h1 { font-size: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .hours-grid { grid-template-columns: 1fr; }
+            .map-container { height: 240px; }
+            .card { padding: 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .terms-content { padding: 24px; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2rem; }
+            .btn-wa-large { padding: 14px 24px; font-size: 0.95rem; }
+            .order-section { padding: 28px 16px; }
+            .order-options { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .order-option { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <div class="logo"><a href="index.html"><img src="images/logo1.jpg" alt="The Gift Pantry & Florist" /></a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Catalogue</a>
+                <a href="order.html" class="active">Contact</a>
+                <a href="#" class="nav-wa" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="catalogue.html"><i class="fas fa-gift"></i> Catalogue</a>
+            <a href="order.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="container page-hero">
+        <h1 class="seq-item">Get in <span class="pink-highlight">Touch</span></h1>
+        <p class="seq-item">We'd love to hear from you — whether it's for an order, a custom request, or just a question.</p>
+    </section>
+
+    <!-- ===== ORDER NOW SECTION ===== -->
+    <section class="container seq-item">
+        <div class="order-section">
+            <h2>Ready To Make Someone's Day?</h2>
+            <p>Place your order directly through WhatsApp and we'll help you choose the perfect gift or floral arrangement.</p>
+            <a href="#" onclick="openWhatsApp()" class="btn-wa-large"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+
+            <div class="order-options">
+                <div class="order-option">
+                    <i class="fas fa-pen-fancy"></i>
+                    <p>Custom Orders</p>
+                    <small>Personalised gifts</small>
+                </div>
+                <div class="order-option">
+                    <i class="fas fa-building"></i>
+                    <p>Corporate Enquiries</p>
+                    <small>Company gifting</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT INFO + FORM GRID ===== -->
+    <section class="container contact-grid">
+        <!-- Left: Contact Info -->
+        <div>
+            <div class="card seq-item">
+                <div class="card-icon"><i class="fas fa-map-pin"></i></div>
+                <h3>Visit Our Studio</h3>
+                <p>Unit 6, Block B4, Tygervalley Office Park<br />Silverlakes Road<br />Pretoria East</p>
+                <p style="font-size: 0.9rem; margin-top: 6px; color: #6a5a56;"><i class="fas fa-info-circle" style="color: var(--pink-strong);"></i> Next to Engen Garage</p>
+            </div>
+
+            <div class="card seq-item" style="margin-top: 20px;">
+                <div class="card-icon"><i class="fas fa-clock"></i></div>
+                <h3>Operating Hours</h3>
+                <div class="hours-grid">
+                    <div class="hours-item"><span class="day">Monday – Friday</span><span class="time">9:00 – 17:00</span></div>
+                    <div class="hours-item"><span class="day">Saturday</span><span class="time">9:00 – 14:00</span></div>
+                    <div class="hours-item"><span class="day">Sunday</span><span class="time">Closed</span></div>
+                </div>
+            </div>
+
+            <div class="card seq-item" style="margin-top: 20px;">
+                <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3>Contact Details</h3>
+                <p><i class="fab fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <strong>WhatsApp:</strong> 066 304 3716</p>
+                <p style="margin-top: 4px;"><i class="fas fa-envelope" style="color: var(--pink-strong); margin-right: 8px;"></i> <strong>Email:</strong> info@giftpantry.co.za</p>
+            </div>
+        </div>
+
+        <!-- Right: Enquiry Form -->
+        <div class="card seq-item">
+            <div class="card-icon" style="font-size: 1.8rem;"><i class="fas fa-paper-plane"></i></div>
+            <h3>Send an Enquiry</h3>
+            <p style="margin-bottom: 18px; color: #4a403c; font-weight: 350;">We'll get back to you as soon as possible.</p>
+
+            <form id="enquiryForm" onsubmit="return handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Your phone number" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Your email address" required />
+                </div>
+                <div class="form-group">
+                    <label for="enquiryType">Enquiry Type</label>
+                    <select id="enquiryType">
+                        <option value="General Enquiry">General Enquiry</option>
+                        <option value="Hampers">Hampers</option>
+                        <option value="Flowers">Flowers</option>
+                        <option value="Custom Order">Custom Order</option>
+                        <option value="Corporate Gifting">Corporate Gifting</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us more about what you're looking for..."></textarea>
+                </div>
+                <button type="submit" class="btn-pink" style="width:100%; justify-content:center; display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-paper-plane"></i> Send Enquiry
+                </button>
+                <p style="font-size: 0.8rem; color: #7a6a66; margin-top: 10px; text-align: center;">
+                    <i class="fas fa-info-circle"></i> For immediate assistance, please use WhatsApp.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== MAP ===== -->
+    <section class="container">
+        <h2 class="seq-item" style="font-weight: 600; font-size: 1.6rem; margin-bottom: 4px;">Find <span class="pink-highlight">Us</span></h2>
+        <p class="seq-item" style="color: #4a403c; margin-bottom: 16px;">Unit 6, Block B4, Tygervalley Office Park, Silverlakes Road, Pretoria East</p>
+        <div class="map-container seq-item">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.932145314539!2d28.318704!3d-25.797979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9561d4a6a4c4b7%3A0x7e3b8a0c5f4b3a2d!2sTygervalley%20Office%20Park!5e0!3m2!1sen!2sza!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <div style="text-align: center; margin: 12px 0 32px;" class="seq-item">
+        <a href="https://www.google.com/maps/dir//Unit+6+Block+B4+Tygervalley+Office+Park+Silverlakes+Road+Pretoria+East" target="_blank" class="btn-outline" style="display:inline-flex; align-items:center; gap:8px;">
+            <i class="fas fa-directions"></i> Get Directions
+        </a>
+    </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="container" style="margin-bottom: 40px;">
+    <h2 class="seq-item" style="font-weight: 600; font-size: 1.6rem; margin-bottom: 6px;">Frequently Asked <span class="pink-highlight">Questions</span></h2>
+    <p class="seq-item" style="color: #4a403c; margin-bottom: 20px;">Quick answers to common questions.</p>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Can I customise my bouquet or hamper?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, absolutely! We love creating bespoke arrangements. Contact us via WhatsApp to discuss your vision.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Do flower prices fluctuate?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, prices may vary depending on the season and availability of specific blooms.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Can I cancel my order?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, cancellations are accepted at least 48 hours before delivery. Please contact us as soon as possible.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Are refunds available?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Refunds may apply to eligible cancellations. Deposits are non-refundable once preparation begins.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer same-day delivery?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, same-day delivery is available subject to stock availability. Please contact us early to confirm.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Can I add a personal message?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, you can! We'll include your personal message with the delivery.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer delivery?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, we offer delivery at an additional fee. Contact us for a quote based on your location.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            What if an item is unavailable?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">We'll provide a suitable alternative of equal or greater value. We'll always confirm with you first.</div>
+    </div>
+
+    <div class="faq-item seq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            How do I place an order?
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Contact us via WhatsApp to place your order. We'll guide you through the process.</div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <img src="images/logo1.jpg" style="max-height:40px;width:auto;margin-bottom:12px;" alt="logo" />
+                <p style="color:#4a403c;font-weight:350;font-size:0.9rem;max-width:240px;">Premium gifting and florist boutique in Pretoria East.</p>
+                <div class="footer-social" style="margin-top:12px;">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Catalogue</a>
+                    <a href="order.html">Contact</a>
+                    <a href="#" onclick="openWhatsApp()">Order on WhatsApp</a>
+                </div>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <div class="footer-links">
+                    <a href="#" onclick="openTerms()">Terms & Conditions</a>
+                    <a href="#" onclick="openPrivacy()">Privacy Policy</a>
+                    <a href="#" onclick="openDelivery()">Delivery Policy</a>
+                </div>
+                <div style="margin-top:12px; font-size:0.85rem; color:#4a403c;">
+                    <p><i class="fab fa-whatsapp" style="color:#25d366;"></i> 066 304 3716</p>
+                    <p><i class="fas fa-envelope" style="color:var(--pink-strong);"></i> info@giftpantry.co.za</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 The Gift Pantry & Florist. All rights reserved.</span>
+            <span class="developer-credit">Developed by <a href="https://www.monarchtechnologies.co.za/" target="_blank" rel="noopener">Monarch Technologies (Pty) Ltd</a></span>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== TERMS MODAL ===== -->
+<div class="terms-modal" id="termsModal">
+    <div class="terms-content">
+        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+        <h2 id="modalTitle">Terms & Conditions</h2>
+        <div id="modalBody">
+            <!-- Content injected by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="#" onclick="openWhatsApp()" class="float-wa" aria-label="Chat with us"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    // ===== HAMBURGER TOGGLE =====
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        });
+    });
+
+    // ===== FAQ TOGGLE =====
+    function toggleFAQ(el) {
+        const answer = el.nextElementSibling;
+        const icon = el.querySelector('i');
+        answer.classList.toggle('open');
+        el.classList.toggle('open');
+    }
+
+    // ===== FORM SUBMISSION =====
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const enquiryType = document.getElementById('enquiryType').value;
+        const message = document.getElementById('message').value;
+
+        const num = '0663043716';
+        const msg = encodeURIComponent(
+            `Hi The Gift Pantry & Florist,\n\nI have an enquiry:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nEnquiry Type: ${enquiryType}\n\nMessage: ${message}\n\nPlease assist me.`
+        );
+        window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+
+        document.getElementById('enquiryForm').reset();
+        return false;
+    }
+
+    // ===== TERMS & CONDITIONS FULL TEXT =====
+    const fullTerms = `
+        <p><strong>All orders are subject to product and flower availability.</strong></p>
+        <p>Flower prices fluctuate due to seasonal availability, supplier pricing and market conditions. Prices may change without prior notice.</p>
+        <p>An order is only confirmed once full payment or the required deposit has been received.</p>
+        <p>A 50% deposit may be required for customised, bulk, wedding, event and corporate orders.</p>
+        <p>The remaining balance must be paid before delivery or collection, unless otherwise agreed.</p>
+        <p>Deposits are non-refundable once preparation, purchasing or production has started.</p>
+        <p>Cancellations must be made at least 48 hours before the scheduled delivery or collection to be considered for a refund.</p>
+        <p>Approved refunds will be processed using the original payment method and may take a few business days to reflect.</p>
+        <p>No refunds will be given for change of mind once an order has been prepared or delivered.</p>
+        <p>We reserve the right to substitute unavailable flowers or products with a suitable alternative of similar or greater value.</p>
+        <p>Arrangements may vary slightly from pictures due to flower availability and the handmade nature of our products.</p>
+        <p>Delivery is charged separately and depends on the delivery area.</p>
+        <p>Customers are responsible for providing the correct delivery address and recipient contact details.</p>
+        <p>Additional delivery charges may apply if the recipient is unavailable or incorrect delivery information was provided.</p>
+        <p>Fresh flowers are perishable and require proper care after delivery.</p>
+        <p>Any issue with an order should be reported as soon as possible, preferably on the day of delivery, with photographs where applicable.</p>
+    `;
+
+    // ===== MODAL FUNCTIONS =====
+    function openTerms() {
+        document.getElementById('modalTitle').textContent = 'Terms & Conditions';
+        document.getElementById('modalBody').innerHTML = fullTerms;
+        document.getElementById('termsModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function openPrivacy() {
+        document.getElementById('modalTitle').textContent = 'Privacy Policy';
+        document.getElementById('modalBody').innerHTML = `
+            <h3>Information We Collect</h3>
+            <p>We collect personal information such as name, phone number, and email address when you place an order or make an enquiry.</p>
+            <h3>How We Use Your Information</h3>
+            <p>Your information is used to process orders, communicate with you about your order, and improve our services.</p>
+            <h3>Data Protection</h3>
+            <p>We take reasonable measures to protect your personal information. We do not share your data with third parties without your consent.</p>
+            <h3>Contact</h3>
+            <p>For privacy-related questions, contact us at info@giftpantry.co.za.</p>
+        `;
+        document.getElementById('termsModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function openDelivery() {
+        document.getElementById('modalTitle').textContent = 'Delivery Policy';
+        document.getElementById('modalBody').innerHTML = `
+            <h3>Delivery Areas</h3>
+            <p>We deliver to Pretoria East and surrounding areas. Please contact us to confirm delivery to your specific location.</p>
+            <h3>Delivery Fees</h3>
+            <p>Delivery is available at an additional fee. The fee will be quoted based on your location.</p>
+            <h3>Same-Day Delivery</h3>
+            <p>Same-day delivery is available subject to stock availability. Orders must be placed early to qualify.</p>
+            <h3>Delivery Times</h3>
+            <p>Delivery times vary based on location and order volume. We'll provide an estimated delivery time when you place your order.</p>
+            <h3>Contact</h3>
+            <p>For delivery enquiries, contact us via WhatsApp at 066 304 3716.</p>
+        `;
+        document.getElementById('termsModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('termsModal').classList.remove('open');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on outside click
+    document.getElementById('termsModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // ===== WHATSAPP FUNCTIONS =====
+    function openWhatsApp() {
+        const num = '0663043716';
+        const msg = encodeURIComponent('Hi The Gift Pantry & Florist, I\'d like to place an order. Please assist me.');
+        window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+    }
+
+    // ===== NAVBAR SHADOW ON SCROLL =====
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 20) {
+            navbar.style.boxShadow = '0 2px 28px rgba(0,0,0,0.06)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
+</body>
+</html>

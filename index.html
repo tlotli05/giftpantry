@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>The Gift Pantry & Florist · Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #fcf9f8;
+            color: #1e1a18;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        :root {
+            --pink: #f0d6d2;
+            --pink-light: #f8eae7;
+            --pink-medium: #e8c8c2;
+            --pink-accent: #dbb4ae;
+            --pink-deep: #c9a39c;
+            --pink-border: #e6d0cc;
+            --pink-strong: #e8b4b4;
+            --pink-vibrant: #e6a8a8;
+            --charcoal: #1e1a18;
+            --white: #ffffff;
+            --radius: 32px;
+            --radius-sm: 18px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 56px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== SEQUENTIAL FADE-IN ANIMATION ===== */
+        .seq-item {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: seqFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .seq-item:nth-child(1) { animation-delay: 0.05s; }
+        .seq-item:nth-child(2) { animation-delay: 0.10s; }
+        .seq-item:nth-child(3) { animation-delay: 0.15s; }
+        .seq-item:nth-child(4) { animation-delay: 0.20s; }
+        .seq-item:nth-child(5) { animation-delay: 0.25s; }
+        .seq-item:nth-child(6) { animation-delay: 0.30s; }
+        .seq-item:nth-child(7) { animation-delay: 0.35s; }
+        .seq-item:nth-child(8) { animation-delay: 0.40s; }
+        .seq-item:nth-child(9) { animation-delay: 0.45s; }
+        .seq-item:nth-child(10) { animation-delay: 0.50s; }
+        .seq-item:nth-child(11) { animation-delay: 0.55s; }
+        .seq-item:nth-child(12) { animation-delay: 0.60s; }
+        .seq-item:nth-child(13) { animation-delay: 0.65s; }
+        .seq-item:nth-child(14) { animation-delay: 0.70s; }
+        .seq-item:nth-child(15) { animation-delay: 0.75s; }
+        .seq-item:nth-child(16) { animation-delay: 0.80s; }
+        .seq-item:nth-child(17) { animation-delay: 0.85s; }
+        .seq-item:nth-child(18) { animation-delay: 0.90s; }
+        .seq-item:nth-child(19) { animation-delay: 0.95s; }
+        .seq-item:nth-child(20) { animation-delay: 1.00s; }
+
+        @keyframes seqFadeUp {
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== FLOATING ANIMATION FOR ICONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-icon {
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        /* ===== SCALE IN ANIMATION ===== */
+        @keyframes scaleIn {
+            0% { opacity: 0; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .scale-item {
+            opacity: 0;
+            animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .scale-item:nth-child(1) { animation-delay: 0.05s; }
+        .scale-item:nth-child(2) { animation-delay: 0.12s; }
+        .scale-item:nth-child(3) { animation-delay: 0.19s; }
+        .scale-item:nth-child(4) { animation-delay: 0.26s; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(230, 208, 204, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: 0.3s;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            max-height: 42px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.04));
+        }
+        .nav-links {
+            display: none;
+            gap: 2.6rem;
+            font-weight: 450;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            color: #2a2522;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-strong);
+            transition: 0.3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-wa {
+            background: var(--pink-strong);
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.25s;
+            border: 1px solid var(--pink-border);
+            color: #1e1a18;
+        }
+        .nav-wa i {
+            color: #1e1a18;
+        }
+        .nav-wa:hover {
+            background: var(--pink-medium);
+            transform: scale(1.03);
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        .hamburger {
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            cursor: pointer;
+            padding: 4px 6px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+        .hamburger:hover {
+            background: var(--pink-light);
+        }
+        .hamburger .fa-times {
+            display: none;
+        }
+        .hamburger.open .fa-bars {
+            display: none;
+        }
+        .hamburger.open .fa-times {
+            display: inline;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            padding: 20px 24px 28px;
+            border-bottom: 1px solid var(--pink-border);
+        }
+        .mobile-menu.open {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 14px 0;
+            font-weight: 450;
+            border-bottom: 1px solid #f3e6e2;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            border-radius: 0;
+            color: #1e1a18;
+        }
+        .mobile-menu a i {
+            color: var(--pink-strong);
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        .mobile-menu a:hover {
+            color: var(--pink-accent);
+            padding-left: 12px;
+        }
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-dark {
+            background: var(--charcoal);
+            color: white;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .btn-dark:hover {
+            background: #2f2a27;
+            transform: scale(0.97);
+        }
+        .btn-pink {
+            background: var(--pink-strong);
+            color: #1e1a18;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .btn-pink:hover {
+            background: var(--pink-medium);
+            transform: scale(0.97);
+        }
+        .btn-outline-white {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(6px);
+            border: 2px solid rgba(255,255,255,0.6);
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            color: white;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.03);
+        }
+        .btn-outline {
+            display: inline-block;
+            padding: 8px 24px;
+            font-size: 0.85rem;
+            border: 1.5px solid var(--pink-strong);
+            border-radius: 60px;
+            font-weight: 500;
+            transition: 0.3s;
+            color: #1e1a18;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--pink-light);
+            transform: scale(1.02);
+        }
+        .btn-wa {
+            width: 100%;
+            justify-content: center;
+            padding: 10px 0;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .btn-wa:hover {
+            background: #1ebe5c;
+            transform: scale(1.02);
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.35);
+            z-index: 100;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .float-wa:hover {
+            transform: scale(1.08) rotate(-4deg);
+        }
+
+        /* ===== HERO SECTION - FULL WIDTH ===== */
+        .hero-section {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin: 0;
+            width: 100%;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30,26,24,0.35) 0%, rgba(30,26,24,0.10) 50%, rgba(30,26,24,0.15) 100%);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 60px 24px;
+            max-width: 620px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .hero-content .logo-white {
+            max-height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1) drop-shadow(0 4px 16px rgba(0,0,0,0.15));
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: white;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .hero-content h1 .pink-highlight {
+            color: var(--pink-strong);
+            text-shadow: 0 0 30px rgba(232, 180, 180, 0.3);
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.92);
+            margin: 16px 0 28px;
+            font-weight: 350;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            max-width: 480px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232, 180, 180, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 180, 180, 0.3);
+            padding: 10px 22px;
+            border-radius: 60px;
+            color: white;
+            font-size: 0.85rem;
+            margin-top: 24px;
+        }
+        .hero-badge i {
+            color: var(--pink-strong);
+        }
+
+        /* ===== BENEFIT STRIP ===== */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0 40px;
+        }
+        .benefit-item {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 22px 16px;
+            text-align: center;
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--pink-strong);
+        }
+        .benefit-item i {
+            font-size: 1.8rem;
+            color: var(--pink-strong);
+            margin-bottom: 6px;
+        }
+        .benefit-item strong {
+            font-weight: 600;
+            color: #1e1a18;
+        }
+        .benefit-item small {
+            color: #4a403c;
+            font-weight: 350;
+        }
+
+        /* ===== CATEGORY CARDS ===== */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 22px 0;
+        }
+        .cat-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--pink-strong);
+        }
+        .cat-card img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+        .cat-card:hover img {
+            transform: scale(1.04);
+        }
+        .cat-label {
+            padding: 18px 20px 22px;
+        }
+        .cat-label h3 {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1e1a18;
+        }
+        .cat-label h3 i {
+            color: var(--pink-strong);
+            margin-right: 6px;
+        }
+        .cat-label p {
+            color: #4a403c;
+            font-weight: 350;
+            font-size: 0.9rem;
+            margin: 4px 0 12px;
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .prod-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 18px 0 30px;
+        }
+        .prod-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .prod-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--pink-strong);
+        }
+        .prod-card img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+        .prod-card:hover img {
+            transform: scale(1.04);
+        }
+        .prod-card .prod-content {
+            padding: 18px 20px 22px;
+        }
+        .prod-card .prod-content h4 {
+            color: #1e1a18;
+            font-weight: 600;
+        }
+        .prod-card .prod-price {
+            font-weight: 600;
+            color: var(--pink-deep);
+            margin: 4px 0 10px;
+        }
+        .prod-card .prod-desc {
+            font-size: 0.85rem;
+            color: #4a403c;
+            font-weight: 350;
+            margin-bottom: 12px;
+        }
+
+        /* ===== STEPS ===== */
+        .steps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .step-item {
+            background: white;
+            padding: 20px 24px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: 0.3s;
+        }
+        .step-item:hover {
+            transform: translateX(4px);
+            border-color: var(--pink-strong);
+        }
+        .step-num {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--pink-strong);
+            min-width: 44px;
+        }
+        .step-item strong {
+            color: #1e1a18;
+        }
+        .step-item p {
+            color: #4a403c;
+            font-weight: 350;
+        }
+
+        /* ===== OCCASIONS ===== */
+        .occ-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .occ-item {
+            background: white;
+            padding: 12px 8px;
+            border-radius: 60px;
+            text-align: center;
+            font-weight: 450;
+            border: 1px solid var(--pink-border);
+            box-shadow: var(--shadow);
+            font-size: 0.85rem;
+            transition: 0.3s;
+            cursor: default;
+            color: #1e1a18;
+        }
+        .occ-item i {
+            color: var(--pink-strong);
+            margin-right: 4px;
+        }
+        .occ-item:hover {
+            border-color: var(--pink-strong);
+            transform: scale(1.03);
+            background: var(--pink-light);
+        }
+
+        /* ===== SOCIAL GRID ===== */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .social-grid img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--pink-border);
+            transition: 0.3s;
+        }
+        .social-grid img:hover {
+            transform: scale(1.03);
+            border-color: var(--pink-strong);
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            margin: 40px 0 30px;
+        }
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--pink-border);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            border-color: var(--pink-strong);
+        }
+        .faq-question {
+            padding: 18px 22px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+            background: white;
+            color: #1e1a18;
+        }
+        .faq-question:hover {
+            background: var(--pink-light);
+        }
+        .faq-question i {
+            transition: 0.3s;
+            color: var(--pink-strong);
+        }
+        .faq-question.open i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 22px 18px;
+            color: #4a403c;
+            display: none;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+        .faq-answer.open {
+            display: block;
+        }
+
+        /* ===== TERMS MODAL ===== */
+        .terms-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .terms-modal.open {
+            display: flex;
+        }
+        .terms-content {
+            background: white;
+            max-width: 720px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .terms-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terms-content::-webkit-scrollbar-track {
+            background: #f0e8e5;
+            border-radius: 10px;
+        }
+        .terms-content::-webkit-scrollbar-thumb {
+            background: var(--pink-strong);
+            border-radius: 10px;
+        }
+        .terms-content h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #1e1a18;
+        }
+        .terms-content h3 {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            color: #1e1a18;
+        }
+        .terms-content p {
+            color: #4a403c;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .close-modal {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: var(--pink-light);
+            border: none;
+            font-size: 1.4rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            z-index: 10;
+        }
+        .close-modal:hover {
+            background: var(--pink-strong);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: white;
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--pink-border);
+            margin-top: 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+        .footer h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #1e1a18;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .footer-links a {
+            color: #4a403c;
+            font-weight: 350;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--pink-strong);
+            padding-left: 4px;
+        }
+        .footer-social i {
+            font-size: 1.4rem;
+            margin-right: 18px;
+            color: #1e1a18;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .footer-social i:hover {
+            color: var(--pink-strong);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid #f0e8e5;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #5a4a46;
+        }
+        .footer-bottom .developer-credit {
+            color: #4a403c;
+            transition: 0.3s;
+        }
+        .footer-bottom .developer-credit:hover {
+            color: var(--pink-strong);
+        }
+        .footer-bottom .developer-credit a {
+            color: var(--pink-strong);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .footer-bottom .developer-credit a:hover {
+            color: var(--pink-deep);
+            text-decoration: underline;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-eyebrow {
+            color: var(--pink-strong);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: -0.02em;
+            color: #1e1a18;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .hamburger { display: none; }
+            .benefit-grid { grid-template-columns: repeat(4, 1fr); }
+            .cat-grid { grid-template-columns: 1fr 1fr; }
+            .prod-grid { grid-template-columns: repeat(3, 1fr); }
+            .steps-grid { flex-direction: row; }
+            .step-item { flex:1; flex-direction: column; text-align: center; }
+            .occ-grid { grid-template-columns: repeat(6,1fr); }
+            .social-grid { grid-template-columns: repeat(4,1fr); }
+            .hero-content h1 { font-size: 4rem; }
+            .hero-section { min-height: 80vh; }
+            .hero-content { padding: 60px 0; }
+        }
+        @media (max-width: 480px) {
+            .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .cat-grid { grid-template-columns: 1fr 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-section { min-height: 70vh; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .occ-grid { grid-template-columns: 1fr 1fr 1fr; }
+            .hero-content { padding: 40px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <div class="logo"><a href="index.html"><img src="images/logo1.jpg" alt="The Gift Pantry & Florist" /></a></div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="catalogue.html">Catalogue</a>
+                <a href="order.html">Contact</a>
+                <a href="#" class="nav-wa" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="catalogue.html"><i class="fas fa-gift"></i> Catalogue</a>
+            <a href="order.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION WITH PIC12 ===== -->
+    <section class="hero-section">
+        <div class="hero-bg">
+            <img src="images/pic12.jpg" alt="The Gift Pantry & Florist" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <img src="images/logo1.jpg" alt="The Gift Pantry & Florist" class="logo-white seq-item" />
+            <h1 class="seq-item">Bespoke Florals &<br /><span class="pink-highlight">Luxury Hampers</span></h1>
+            <p class="seq-item">Thoughtfully curated gifts and beautiful blooms, made to make every occasion special.</p>
+            <div class="hero-buttons seq-item">
+                <a href="catalogue.html" class="btn-dark">Shop the collection</a>
+                <a href="#" onclick="openWhatsApp()" class="btn-outline-white"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="hero-badge seq-item">
+                <i class="fas fa-star"></i> Premium gifting · Pretoria East
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFIT STRIP ===== -->
+    <div class="container benefit-grid">
+        <div class="benefit-item seq-item">
+            <i class="fas fa-gift float-icon"></i>
+            <div><strong>Thoughtfully Curated</strong><br /><small>Gifts selected with care</small></div>
+        </div>
+        <div class="benefit-item seq-item">
+            <i class="fas fa-seedling float-icon"></i>
+            <div><strong>Fresh & Beautiful</strong><br /><small>Arranged with attention</small></div>
+        </div>
+        <div class="benefit-item seq-item">
+            <i class="fas fa-truck float-icon"></i>
+            <div><strong>Pretoria East</strong><br /><small>Delivery options available</small></div>
+        </div>
+        <div class="benefit-item seq-item">
+            <i class="fas fa-heart float-icon"></i>
+            <div><strong>Every Occasion</strong><br /><small>Gifts for all moments</small></div>
+        </div>
+    </div>
+
+    <!-- ===== BROWSE CATEGORIES ===== -->
+    <section class="container" style="margin: 20px 0 30px;">
+        <div class="seq-item"><span class="section-eyebrow">Browse our collection</span></div>
+        <h2 class="seq-item section-title">Find something beautiful</h2>
+
+        <div class="cat-grid">
+            <div class="cat-card seq-item">
+                <img src="images/pic7.jpg" alt="Luxury Hampers" />
+                <div class="cat-label">
+                    <h3><i class="fas fa-gift"></i> Luxury Hampers</h3>
+                    <p>Thoughtfully curated gifts for every occasion.</p>
+                    <a href="catalogue.html#hampers" class="btn-outline">Explore Hampers <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+                </div>
+            </div>
+            <div class="cat-card seq-item">
+                <img src="images/pic3.jpg" alt="Fresh Flowers" />
+                <div class="cat-label">
+                    <h3><i class="fas fa-seedling"></i> Fresh Flowers</h3>
+                    <p>Beautiful blooms arranged to make someone feel special.</p>
+                    <a href="catalogue.html#flowers" class="btn-outline">Explore Flowers <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="occ-grid">
+            <div class="occ-item seq-item"><i class="fas fa-birthday-cake"></i> Birthdays</div>
+            <div class="occ-item seq-item"><i class="fas fa-ring"></i> Anniversaries</div>
+            <div class="occ-item seq-item"><i class="fas fa-heart"></i> Romantic</div>
+            <div class="occ-item seq-item"><i class="fas fa-building"></i> Corporate</div>
+            <div class="occ-item seq-item"><i class="fas fa-smile"></i> Just Because</div>
+            <div class="occ-item seq-item"><i class="fas fa-glass-cheers"></i> Celebrations</div>
+        </div>
+    </section>
+
+    <!-- ===== CURATED SELECTION ===== -->
+    <section class="container" style="margin: 20px 0 30px;">
+        <div class="seq-item"><span class="section-eyebrow">Curated selection</span></div>
+        <h2 class="seq-item section-title">Our favourites</h2>
+
+        <div class="prod-grid">
+            <div class="prod-card seq-item">
+                <img src="images/pic1.jpg" alt="Pink Rose Bouquet" />
+                <div class="prod-content">
+                    <h4>Pink Rose Bouquet</h4>
+                    <div class="prod-price">From R420</div>
+                    <div class="prod-desc">Soft pink roses for any occasion.</div>
+                    <a href="#" onclick="openWhatsAppProduct('Pink Rose Bouquet')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order</a>
+                </div>
+            </div>
+            <div class="prod-card seq-item">
+                <img src="images/pic7.jpg" alt="Luxury Hamper" />
+                <div class="prod-content">
+                    <h4>Luxury Hamper</h4>
+                    <div class="prod-price">From R750</div>
+                    <div class="prod-desc">Elegant gifts for discerning tastes.</div>
+                    <a href="#" onclick="openWhatsAppProduct('Luxury Hamper')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order</a>
+                </div>
+            </div>
+            <div class="prod-card seq-item">
+                <img src="images/pic11.jpg" alt="Spring Mix" />
+                <div class="prod-content">
+                    <h4>Spring Mix Arrangement</h4>
+                    <div class="prod-price">From R380</div>
+                    <div class="prod-desc">Vibrant seasonal blooms.</div>
+                    <a href="#" onclick="openWhatsAppProduct('Spring Mix Arrangement')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="container" style="margin: 20px 0 30px;">
+        <h2 class="seq-item section-title" style="font-size: 1.8rem;">How it works</h2>
+        <div class="steps-grid">
+            <div class="step-item seq-item">
+                <span class="step-num">01</span>
+                <div><strong>Browse</strong><p>Explore our hampers & flowers.</p></div>
+            </div>
+            <div class="step-item seq-item">
+                <span class="step-num">02</span>
+                <div><strong>Choose</strong><p>Find the perfect gift.</p></div>
+            </div>
+            <div class="step-item seq-item">
+                <span class="step-num">03</span>
+                <div><strong>Order on WhatsApp</strong><p>We'll assist with your order.</p></div>
+            </div>
+        </div>
+        <div style="text-align:center;margin:16px 0;" class="seq-item">
+            <a href="catalogue.html" class="btn-pink">Start shopping <i class="fas fa-arrow-right" style="margin-left:8px;"></i></a>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="container faq-section">
+        <h2 class="seq-item section-title" style="font-size: 1.6rem; margin-bottom: 6px;">Frequently Asked <span class="pink-highlight" style="color:var(--pink-strong);">Questions</span></h2>
+        <p class="seq-item" style="color: #4a403c; margin-bottom: 20px;">Quick answers to common questions.</p>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Can I customise my bouquet or hamper?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, absolutely! We love creating bespoke arrangements. Contact us via WhatsApp to discuss your vision.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Do flower prices fluctuate?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, prices may vary depending on the season and availability of specific blooms.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Can I cancel my order?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, cancellations are accepted at least 48 hours before delivery. Please contact us as soon as possible.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Are refunds available?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Refunds may apply to eligible cancellations. Deposits are non-refundable once preparation begins.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Do you offer same-day delivery?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, same-day delivery is available subject to stock availability. Please contact us early to confirm.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Can I add a personal message?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, you can! We'll include your personal message with the delivery.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                Do you offer delivery?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Yes, we offer delivery at an additional fee. Contact us for a quote based on your location.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                What if an item is unavailable?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">We'll provide a suitable alternative of equal or greater value. We'll always confirm with you first.</div>
+        </div>
+
+        <div class="faq-item seq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                How do I place an order?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">Contact us via WhatsApp to place your order. We'll guide you through the process.</div>
+        </div>
+    </section>
+
+    <!-- ===== SOCIAL ===== -->
+    <section class="container" style="margin: 20px 0 30px;">
+        <h2 class="seq-item section-title" style="font-size: 1.6rem;">Follow The Gift Pantry</h2>
+        <p class="seq-item" style="color:#4a403c;font-weight:350;">Discover our latest creations, gift inspiration and behind-the-scenes moments.</p>
+        <div class="seq-item" style="display:flex;gap:20px;font-size:1.6rem;margin:12px 0;">
+            <i class="fab fa-instagram" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
+            <i class="fab fa-tiktok" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
+            <i class="fab fa-facebook" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
+        </div>
+        <div class="social-grid">
+            <img src="images/pic7.jpg" class="seq-item" />
+            <img src="images/pic8.jpg" class="seq-item" />
+            <img src="images/pic9.jpg" class="seq-item" />
+            <img src="images/pic10.jpg" class="seq-item" />
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="images/logo1.jpg" style="max-height:40px;width:auto;margin-bottom:12px;" alt="logo" />
+                    <p style="color:#4a403c;font-weight:350;font-size:0.9rem;max-width:240px;">Premium gifting and florist boutique in Pretoria East.</p>
+                    <div class="footer-social" style="margin-top:12px;">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-tiktok"></i>
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="catalogue.html">Catalogue</a>
+                        <a href="order.html">Contact</a>
+                        <a href="#" onclick="openWhatsApp()">Order on WhatsApp</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <div class="footer-links">
+                        <a href="#" onclick="openTerms()">Terms & Conditions</a>
+                        <a href="#" onclick="openPrivacy()">Privacy Policy</a>
+                        <a href="#" onclick="openDelivery()">Delivery Policy</a>
+                    </div>
+                    <div style="margin-top:12px; font-size:0.85rem; color:#4a403c;">
+                        <p><i class="fab fa-whatsapp" style="color:#25d366;"></i> 066 304 3716</p>
+                        <p><i class="fas fa-envelope" style="color:var(--pink-strong);"></i> info@giftpantry.co.za</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 The Gift Pantry & Florist. All rights reserved.</span>
+                <span class="developer-credit">Developed by <a href="https://www.monarchtechnologies.co.za/" target="_blank" rel="noopener">Monarch Technologies (Pty) Ltd</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== TERMS MODAL ===== -->
+    <div class="terms-modal" id="termsModal">
+        <div class="terms-content">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <h2 id="modalTitle">Terms & Conditions</h2>
+            <div id="modalBody">
+                <!-- Content injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING WHATSAPP ===== -->
+    <a href="#" onclick="openWhatsApp()" class="float-wa" aria-label="Chat with us"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        // ===== HAMBURGER TOGGLE =====
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // ===== FAQ TOGGLE =====
+        function toggleFAQ(el) {
+            const answer = el.nextElementSibling;
+            const icon = el.querySelector('i');
+            answer.classList.toggle('open');
+            el.classList.toggle('open');
+        }
+
+        // ===== WHATSAPP FUNCTIONS =====
+        function openWhatsApp() {
+            const num = '0663043716';
+            const msg = encodeURIComponent('Hi The Gift Pantry & Florist, I\'d like to place an order. Please assist me.');
+            window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+        }
+
+        function openWhatsAppProduct(name) {
+            const num = '0663043716';
+            const msg = encodeURIComponent(`Hi The Gift Pantry & Florist, I'm interested in ordering ${name}. Please assist me with availability and ordering.`);
+            window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+        }
+
+        // ===== TERMS & CONDITIONS FULL TEXT =====
+        const fullTerms = `
+            <p><strong>All orders are subject to product and flower availability.</strong></p>
+            <p>Flower prices fluctuate due to seasonal availability, supplier pricing and market conditions. Prices may change without prior notice.</p>
+            <p>An order is only confirmed once full payment or the required deposit has been received.</p>
+            <p>A 50% deposit may be required for customised, bulk, wedding, event and corporate orders.</p>
+            <p>The remaining balance must be paid before delivery or collection, unless otherwise agreed.</p>
+            <p>Deposits are non-refundable once preparation, purchasing or production has started.</p>
+            <p>Cancellations must be made at least 48 hours before the scheduled delivery or collection to be considered for a refund.</p>
+            <p>Approved refunds will be processed using the original payment method and may take a few business days to reflect.</p>
+            <p>No refunds will be given for change of mind once an order has been prepared or delivered.</p>
+            <p>We reserve the right to substitute unavailable flowers or products with a suitable alternative of similar or greater value.</p>
+            <p>Arrangements may vary slightly from pictures due to flower availability and the handmade nature of our products.</p>
+            <p>Delivery is charged separately and depends on the delivery area.</p>
+            <p>Customers are responsible for providing the correct delivery address and recipient contact details.</p>
+            <p>Additional delivery charges may apply if the recipient is unavailable or incorrect delivery information was provided.</p>
+            <p>Fresh flowers are perishable and require proper care after delivery.</p>
+            <p>Any issue with an order should be reported as soon as possible, preferably on the day of delivery, with photographs where applicable.</p>
+        `;
+
+        // ===== MODAL FUNCTIONS =====
+        function openTerms() {
+            document.getElementById('modalTitle').textContent = 'Terms & Conditions';
+            document.getElementById('modalBody').innerHTML = fullTerms;
+            document.getElementById('termsModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openPrivacy() {
+            document.getElementById('modalTitle').textContent = 'Privacy Policy';
+            document.getElementById('modalBody').innerHTML = `
+                <h3>Information We Collect</h3>
+                <p>We collect personal information such as name, phone number, and email address when you place an order or make an enquiry.</p>
+                <h3>How We Use Your Information</h3>
+                <p>Your information is used to process orders, communicate with you about your order, and improve our services.</p>
+                <h3>Data Protection</h3>
+                <p>We take reasonable measures to protect your personal information. We do not share your data with third parties without your consent.</p>
+                <h3>Contact</h3>
+                <p>For privacy-related questions, contact us at info@giftpantry.co.za.</p>
+            `;
+            document.getElementById('termsModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openDelivery() {
+            document.getElementById('modalTitle').textContent = 'Delivery Policy';
+            document.getElementById('modalBody').innerHTML = `
+                <h3>Delivery Areas</h3>
+                <p>We deliver to Pretoria East and surrounding areas. Please contact us to confirm delivery to your specific location.</p>
+                <h3>Delivery Fees</h3>
+                <p>Delivery is available at an additional fee. The fee will be quoted based on your location.</p>
+                <h3>Same-Day Delivery</h3>
+                <p>Same-day delivery is available subject to stock availability. Orders must be placed early to qualify.</p>
+                <h3>Delivery Times</h3>
+                <p>Delivery times vary based on location and order volume. We'll provide an estimated delivery time when you place your order.</p>
+                <h3>Contact</h3>
+                <p>For delivery enquiries, contact us via WhatsApp at 066 304 3716.</p>
+            `;
+            document.getElementById('termsModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('termsModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('termsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // ===== NAVBAR SHADOW ON SCROLL =====
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 20) {
+                navbar.style.boxShadow = '0 2px 28px rgba(0,0,0,0.06)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
