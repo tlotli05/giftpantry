@@ -290,28 +290,30 @@
             background: var(--pink-light);
             transform: scale(1.02);
         }
+        
+        /* ===== WHATSAPP BUTTON - INLINE ===== */
         .btn-wa {
-            width: 100%;
-            justify-content: center;
-            padding: 10px 0;
+            display: inline-block;
+            padding: 8px 16px;
             background: #25d366;
             color: white;
             border: none;
             border-radius: 60px;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             transition: 0.3s;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 0.2px;
-        }
-        .btn-wa i {
-            font-size: 0.85rem;
+            white-space: nowrap;
         }
         .btn-wa:hover {
             background: #1ebe5c;
             transform: scale(1.02);
+        }
+        .btn-wa-wrapper {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
         }
 
         /* ===== FLOATING WHATSAPP ===== */
@@ -643,6 +645,36 @@
             text-decoration: underline;
         }
 
+        /* ===== TERMS & CONDITIONS ===== */
+        .terms-section {
+            background: white;
+            padding: 32px 0 20px;
+            border-top: 1px solid var(--pink-border);
+            margin-top: 10px;
+        }
+        .terms-section h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #1e1a18;
+        }
+        .terms-section p {
+            color: #4a403c;
+            font-weight: 350;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            max-width: 1000px;
+        }
+        .terms-section a {
+            color: var(--pink-strong);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .terms-section a:hover {
+            color: var(--pink-deep);
+            text-decoration: underline;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (min-width: 768px) {
             .nav-links { display: flex; }
@@ -657,6 +689,8 @@
             .blend-card { padding: 28px 16px; }
             .cat-hero h1 { font-size: 2rem; }
             .footer-grid { grid-template-columns: 1fr; }
+            .btn-wa { font-size: 0.6rem; padding: 6px 10px; }
+            .btn-wa-wrapper { gap: 4px; }
         }
     </style>
 </head>
@@ -717,7 +751,9 @@
                     <h4>Premium Gift Hamper</h4>
                     <div class="prod-price">From R600</div>
                     <div class="prod-desc">A curated selection of premium treats and delights.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Premium Gift Hamper')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Premium Gift Hamper')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -727,7 +763,9 @@
                     <h4>Hamper</h4>
                     <div class="prod-price">From R450</div>
                     <div class="prod-desc">Elegant gifts for discerning tastes.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Luxury Hamper')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Luxury Hamper')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -737,7 +775,9 @@
                     <h4>Celebration Hamper</h4>
                     <div class="prod-price">From R680</div>
                     <div class="prod-desc">Perfect for birthdays and milestones.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Celebration Hamper')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Celebration Hamper')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -747,7 +787,9 @@
                     <h4>Corporate Gifting Hamper</h4>
                     <div class="prod-price">From R1,100</div>
                     <div class="prod-desc">Impress clients with a premium corporate gift.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Corporate Gifting Hamper')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Corporate Gifting Hamper')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -767,7 +809,9 @@
                     <h4>Bespoke Rose Bouquet</h4>
                     <div class="prod-price">From R420</div>
                     <div class="prod-desc">Elegant roses arranged with care.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Bespoke Rose Bouquet')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Bespoke Rose Bouquet')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -777,7 +821,9 @@
                     <h4>Spring Mix Arrangement</h4>
                     <div class="prod-price">From R380</div>
                     <div class="prod-desc">Vibrant seasonal blooms in a stunning mix.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Spring Mix Arrangement')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Spring Mix Arrangement')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -787,7 +833,9 @@
                     <h4>Pink Rose Bouquet</h4>
                     <div class="prod-price">From R460</div>
                     <div class="prod-desc">Soft pink roses for any occasion.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Pink Rose Bouquet')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Pink Rose Bouquet')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -797,7 +845,9 @@
                     <h4>Elegant White Arrangement</h4>
                     <div class="prod-price">From R520</div>
                     <div class="prod-desc">Sophisticated white blooms for a refined look.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Elegant White Arrangement')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Elegant White Arrangement')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -817,7 +867,9 @@
                     <h4>Garden Party Mix</h4>
                     <div class="prod-price">From R450</div>
                     <div class="prod-desc">A cheerful mix of seasonal garden flowers.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Garden Party Mix')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Garden Party Mix')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -827,7 +879,9 @@
                     <h4>Rustic Charm Mix</h4>
                     <div class="prod-price">From R390</div>
                     <div class="prod-desc">Warm, earthy tones for a rustic feel.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Rustic Charm Mix')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Rustic Charm Mix')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
             <div class="prod-card scale-item">
@@ -837,7 +891,9 @@
                     <h4>Romantic Blush Mix</h4>
                     <div class="prod-price">From R480</div>
                     <div class="prod-desc">Soft pinks and creams for a romantic gesture.</div>
-                    <a href="#" onclick="openWhatsAppProduct('Romantic Blush Mix')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+                    <div class="btn-wa-wrapper">
+                        <a href="#" onclick="openWhatsAppProduct('Romantic Blush Mix')" class="btn-wa">Order on WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -889,6 +945,31 @@
         </div>
     </footer>
 
+    <!-- ===== TERMS & CONDITIONS ===== -->
+    <section class="terms-section">
+        <div class="container">
+            <h4>Terms & Conditions</h4>
+            <p>
+                All orders are subject to product and flower availability.<br />
+                Flower prices fluctuate due to seasonal availability, supplier pricing and market conditions. Prices may change without prior notice.<br />
+                An order is only confirmed once full payment or the required deposit has been received.<br />
+                A 50% deposit may be required for customised, bulk, wedding, event and corporate orders.<br />
+                The remaining balance must be paid before delivery or collection, unless otherwise agreed.<br />
+                Deposits are non-refundable once preparation, purchasing or production has started.<br />
+                Cancellations must be made at least 48 hours before the scheduled delivery or collection to be considered for a refund.<br />
+                Approved refunds will be processed using the original payment method and may take a few business days to reflect.<br />
+                No refunds will be given for change of mind once an order has been prepared or delivered.<br />
+                We reserve the right to substitute unavailable flowers or products with a suitable alternative of similar or greater value.<br />
+                Arrangements may vary slightly from pictures due to flower availability and the handmade nature of our products.<br />
+                Delivery is charged separately and depends on the delivery area.<br />
+                Customers are responsible for providing the correct delivery address and recipient contact details.<br />
+                Additional delivery charges may apply if the recipient is unavailable or incorrect delivery information was provided.<br />
+                Fresh flowers are perishable and require proper care after delivery.<br />
+                Any issue with an order should be reported as soon as possible, preferably on the day of delivery, with photographs where applicable.
+            </p>
+        </div>
+    </section>
+
     <!-- ===== FLOATING WHATSAPP ===== -->
     <a href="#" onclick="openWhatsApp()" class="float-wa" aria-label="Chat with us"><i class="fab fa-whatsapp"></i></a>
 
@@ -933,22 +1014,21 @@
         });
 
         // ===== WHATSAPP FUNCTIONS =====
+        const whatsappNumber = '0663043716';
+
         function openWhatsApp() {
-            const num = '0663043716';
             const msg = encodeURIComponent('Hi The Gift Pantry & Florist, I\'d like to place an order. Please assist me.');
-            window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         }
 
         function openWhatsAppProduct(name) {
-            const num = '0663043716';
             const msg = encodeURIComponent(`Hi The Gift Pantry & Florist, I'm interested in ordering ${name}. Please assist me with availability and ordering.`);
-            window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         }
 
         function openWhatsAppCustom() {
-            const num = '0663043716';
             const msg = encodeURIComponent(`Hi The Gift Pantry & Florist, I'd like to create a custom flower blend. Please assist me with options and pricing.`);
-            window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
+            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         }
 
         // ===== NAVBAR SHADOW ON SCROLL =====
