@@ -109,6 +109,23 @@
         .scale-item:nth-child(3) { animation-delay: 0.19s; }
         .scale-item:nth-child(4) { animation-delay: 0.26s; }
 
+        /* ===== BOUNCE ANIMATION FOR SOCIAL IMAGES ===== */
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+            60% { opacity: 1; transform: scale(1.04) translateY(-6px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .bounce-item {
+            opacity: 0;
+            animation: bounceIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .bounce-item:nth-child(1) { animation-delay: 0.05s; }
+        .bounce-item:nth-child(2) { animation-delay: 0.12s; }
+        .bounce-item:nth-child(3) { animation-delay: 0.19s; }
+        .bounce-item:nth-child(4) { animation-delay: 0.26s; }
+        .bounce-item:nth-child(5) { animation-delay: 0.33s; }
+        .bounce-item:nth-child(6) { animation-delay: 0.40s; }
+
         /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(255, 255, 255, 0.92);
@@ -126,10 +143,25 @@
             justify-content: space-between;
             align-items: center;
         }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .logo img {
             max-height: 42px;
             width: auto;
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.04));
+        }
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e1a18;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .logo-text span {
+            color: var(--pink-strong);
         }
         .nav-links {
             display: none;
@@ -356,6 +388,7 @@
             min-height: 85vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             overflow: hidden;
             margin: 0;
             width: 100%;
@@ -390,6 +423,10 @@
             max-width: 620px;
             width: 100%;
             margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .hero-content .logo-white {
             max-height: 70px;
@@ -421,6 +458,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
+            justify-content: center;
         }
         .hero-badge {
             display: inline-flex;
@@ -504,6 +542,7 @@
         }
         .cat-label {
             padding: 18px 20px 22px;
+            text-align: center;
         }
         .cat-label h3 {
             font-weight: 600;
@@ -512,7 +551,9 @@
         }
         .cat-label h3 i {
             color: var(--pink-strong);
-            margin-right: 6px;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.6rem;
         }
         .cat-label p {
             color: #4a403c;
@@ -613,20 +654,26 @@
         }
         .occ-item {
             background: white;
-            padding: 12px 8px;
+            padding: 10px 6px;
             border-radius: 60px;
             text-align: center;
             font-weight: 450;
             border: 1px solid var(--pink-border);
             box-shadow: var(--shadow);
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             transition: 0.3s;
             cursor: default;
             color: #1e1a18;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
         }
         .occ-item i {
             color: var(--pink-strong);
-            margin-right: 4px;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
         }
         .occ-item:hover {
             border-color: var(--pink-strong);
@@ -651,6 +698,22 @@
         .social-grid img:hover {
             transform: scale(1.03);
             border-color: var(--pink-strong);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.6rem;
+            margin: 12px 0;
+        }
+        .social-icons i {
+            color: var(--pink-strong);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .social-icons i:hover {
+            transform: translateY(-3px);
+            opacity: 0.7;
         }
 
         /* ===== FAQ SECTION ===== */
@@ -817,12 +880,12 @@
         .footer-social i {
             font-size: 1.4rem;
             margin-right: 18px;
-            color: #1e1a18;
+            color: var(--pink-strong);
             transition: 0.3s;
             cursor: pointer;
         }
         .footer-social i:hover {
-            color: var(--pink-strong);
+            opacity: 0.7;
             transform: translateY(-3px);
         }
         .footer-bottom {
@@ -873,11 +936,11 @@
             .hamburger { display: none; }
             .benefit-grid { grid-template-columns: repeat(4, 1fr); }
             .cat-grid { grid-template-columns: 1fr 1fr; }
-            .prod-grid { grid-template-columns: repeat(3, 1fr); }
+            .prod-grid { grid-template-columns: repeat(4, 1fr); }
             .steps-grid { flex-direction: row; }
             .step-item { flex:1; flex-direction: column; text-align: center; }
             .occ-grid { grid-template-columns: repeat(6,1fr); }
-            .social-grid { grid-template-columns: repeat(4,1fr); }
+            .social-grid { grid-template-columns: repeat(3,1fr); }
             .hero-content h1 { font-size: 4rem; }
             .hero-section { min-height: 80vh; }
             .hero-content { padding: 60px 0; }
@@ -890,6 +953,7 @@
             .footer-grid { grid-template-columns: 1fr; }
             .occ-grid { grid-template-columns: 1fr 1fr 1fr; }
             .hero-content { padding: 40px 16px; }
+            .logo-text { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -898,7 +962,10 @@
     <!-- ===== NAV ===== -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <div class="logo"><a href="index.html"><img src="images/logo1.jpg" alt="The Gift Pantry & Florist" /></a></div>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo1.jpg" alt="The Gift Pantry & Florist" /></a>
+                <span class="logo-text"> <span></span> </span>
+            </div>
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
                 <a href="catalogue.html">Catalogue</a>
@@ -918,15 +985,15 @@
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION WITH PIC12 ===== -->
+    <!-- ===== HERO SECTION WITH PIC13 ===== -->
     <section class="hero-section">
         <div class="hero-bg">
             <img src="images/pic12.jpg" alt="The Gift Pantry & Florist" />
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <img src="images/logo1.jpg" alt="The Gift Pantry & Florist" class="logo-white seq-item" />
-            <h1 class="seq-item">Bespoke Florals &<br /><span class="pink-highlight">Luxury Hampers</span></h1>
+            
+            <h1 class="seq-item">Welcome to <br /><span class="pink-highlight">the Gift Pantry & Florist</span></h1>
             <p class="seq-item">Thoughtfully curated gifts and beautiful blooms, made to make every occasion special.</p>
             <div class="hero-buttons seq-item">
                 <a href="catalogue.html" class="btn-dark">Shop the collection</a>
@@ -946,7 +1013,7 @@
         </div>
         <div class="benefit-item seq-item">
             <i class="fas fa-seedling float-icon"></i>
-            <div><strong>Fresh & Beautiful</strong><br /><small>Arranged with attention</small></div>
+            <div><strong>Floral Collection</strong><br /><small>Arranged with attention</small></div>
         </div>
         <div class="benefit-item seq-item">
             <i class="fas fa-truck float-icon"></i>
@@ -965,19 +1032,19 @@
 
         <div class="cat-grid">
             <div class="cat-card seq-item">
-                <img src="images/pic7.jpg" alt="Luxury Hampers" />
+                <img src="images/pic16.jpg" alt="Luxury Hampers" />
                 <div class="cat-label">
-                    <h3><i class="fas fa-gift"></i> Luxury Hampers</h3>
+                    <h3><i class="fas fa-gift"></i>Luxury Hampers</h3>
                     <p>Thoughtfully curated gifts for every occasion.</p>
                     <a href="catalogue.html#hampers" class="btn-outline">Explore Hampers <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
                 </div>
             </div>
             <div class="cat-card seq-item">
-                <img src="images/pic3.jpg" alt="Fresh Flowers" />
+                <img src="images/pic17.jpg" alt="Fresh Flowers" />
                 <div class="cat-label">
-                    <h3><i class="fas fa-seedling"></i> Fresh Flowers</h3>
+                    <h3><i class="fas fa-seedling"></i>Floral Collection</h3>
                     <p>Beautiful blooms arranged to make someone feel special.</p>
-                    <a href="catalogue.html#flowers" class="btn-outline">Explore Flowers <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+                    <a href="catalogue.html#flowers" class="btn-outline">Explore Floral <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
                 </div>
             </div>
         </div>
@@ -1023,6 +1090,15 @@
                     <div class="prod-price">From R380</div>
                     <div class="prod-desc">Vibrant seasonal blooms.</div>
                     <a href="#" onclick="openWhatsAppProduct('Spring Mix Arrangement')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order</a>
+                </div>
+            </div>
+            <div class="prod-card seq-item">
+                <img src="images/pic18.jpg" alt="Kiddies Party Pack" />
+                <div class="prod-content">
+                    <h4>Kiddies Party Pack</h4>
+                    <div class="prod-price">From R250</div>
+                    <div class="prod-desc">Fun treats for little ones.</div>
+                    <a href="#" onclick="openWhatsAppProduct('Kiddies Party Pack')" class="btn-wa"><i class="fab fa-whatsapp"></i> Order</a>
                 </div>
             </div>
         </div>
@@ -1132,16 +1208,18 @@
     <section class="container" style="margin: 20px 0 30px;">
         <h2 class="seq-item section-title" style="font-size: 1.6rem;">Follow The Gift Pantry</h2>
         <p class="seq-item" style="color:#4a403c;font-weight:350;">Discover our latest creations, gift inspiration and behind-the-scenes moments.</p>
-        <div class="seq-item" style="display:flex;gap:20px;font-size:1.6rem;margin:12px 0;">
-            <i class="fab fa-instagram" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
-            <i class="fab fa-tiktok" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
-            <i class="fab fa-facebook" style="cursor:pointer;transition:0.3s;color:#1e1a18;" onmouseover="this.style.color='var(--pink-strong)'" onmouseout="this.style.color='#1e1a18'"></i>
+        <div class="social-icons seq-item">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-tiktok"></i>
+            <i class="fab fa-facebook"></i>
         </div>
         <div class="social-grid">
-            <img src="images/pic7.jpg" class="seq-item" />
-            <img src="images/pic8.jpg" class="seq-item" />
-            <img src="images/pic9.jpg" class="seq-item" />
-            <img src="images/pic10.jpg" class="seq-item" />
+            <img src="images/pic7.jpg" class="bounce-item" />
+            <img src="images/pic8.jpg" class="bounce-item" />
+            <img src="images/pic9.jpg" class="bounce-item" />
+            <img src="images/pic10.jpg" class="bounce-item" />
+            <img src="images/pic3.jpg" class="bounce-item" />
+            <img src="images/pic6.jpg" class="bounce-item" />
         </div>
     </section>
 
@@ -1227,15 +1305,15 @@
             el.classList.toggle('open');
         }
 
-        // ===== WHATSAPP FUNCTIONS =====
+        // ===== WHATSAPP FUNCTIONS - International format =====
         function openWhatsApp() {
-            const num = '0663043716';
+            const num = '27663043716';
             const msg = encodeURIComponent('Hi The Gift Pantry & Florist, I\'d like to place an order. Please assist me.');
             window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
         }
 
         function openWhatsAppProduct(name) {
-            const num = '0663043716';
+            const num = '27663043716';
             const msg = encodeURIComponent(`Hi The Gift Pantry & Florist, I'm interested in ordering ${name}. Please assist me with availability and ordering.`);
             window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
         }
