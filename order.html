@@ -122,10 +122,25 @@
             justify-content: space-between;
             align-items: center;
         }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .logo img {
             max-height: 42px;
             width: auto;
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.04));
+        }
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e1a18;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .logo-text span {
+            color: var(--pink-strong);
         }
         .nav-links {
             display: none;
@@ -688,12 +703,12 @@
         .footer-social i {
             font-size: 1.4rem;
             margin-right: 18px;
-            color: #1e1a18;
+            color: var(--pink-strong);
             transition: 0.3s;
             cursor: pointer;
         }
         .footer-social i:hover {
-            color: var(--pink-strong);
+            opacity: 0.7;
             transform: translateY(-3px);
         }
         .footer-bottom {
@@ -736,6 +751,7 @@
             .card { padding: 20px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .terms-content { padding: 24px; }
+            .logo-text { font-size: 0.9rem; }
         }
         @media (max-width: 480px) {
             .page-hero h1 { font-size: 2rem; }
@@ -752,7 +768,10 @@
     <!-- ===== NAV ===== -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <div class="logo"><a href="index.html"><img src="images/logo1.jpg" alt="The Gift Pantry & Florist" /></a></div>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo2.jpg" alt="The Gift Pantry & Florist" /></a>
+                <span class="logo-text"><span></span></span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="catalogue.html">Catalogue</a>
@@ -974,7 +993,7 @@
     <div class="container">
         <div class="footer-grid">
             <div>
-                <img src="images/logo1.jpg" style="max-height:40px;width:auto;margin-bottom:12px;" alt="logo" />
+                <img src="images/logo2.jpg" style="max-height:40px;width:auto;margin-bottom:12px;" alt="logo" />
                 <p style="color:#4a403c;font-weight:350;font-size:0.9rem;max-width:240px;">Premium gifting and florist boutique in Pretoria East.</p>
                 <div class="footer-social" style="margin-top:12px;">
                     <i class="fab fa-instagram"></i>
@@ -1060,7 +1079,7 @@
         const enquiryType = document.getElementById('enquiryType').value;
         const message = document.getElementById('message').value;
 
-        const num = '0663043716';
+        const num = '27663043716';
         const msg = encodeURIComponent(
             `Hi The Gift Pantry & Florist,\n\nI have an enquiry:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nEnquiry Type: ${enquiryType}\n\nMessage: ${message}\n\nPlease assist me.`
         );
@@ -1144,9 +1163,9 @@
         }
     });
 
-    // ===== WHATSAPP FUNCTIONS =====
+    // ===== WHATSAPP FUNCTIONS - International format =====
     function openWhatsApp() {
-        const num = '0663043716';
+        const num = '27663043716';
         const msg = encodeURIComponent('Hi The Gift Pantry & Florist, I\'d like to place an order. Please assist me.');
         window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
     }
