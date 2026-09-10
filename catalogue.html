@@ -557,7 +557,7 @@
             font-weight: 300;
         }
 
-        /* ===== DESIGN YOUR BLEND BUTTON (upgraded) ===== */
+        /* ===== DESIGN YOUR BLEND BUTTON ===== */
         .blend-btn {
             display: inline-flex !important;
             align-items: center;
@@ -676,6 +676,96 @@
             color: white;
         }
 
+        /* ===== FACEBOOK COMING SOON MODAL ===== */
+        .fb-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .fb-modal.open { display: flex; }
+        .fb-modal-content {
+            background: var(--white);
+            max-width: 440px;
+            width: 100%;
+            border-radius: var(--radius);
+            padding: 44px 36px 36px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+            text-align: center;
+            position: relative;
+            animation: fbPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fbPopIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .fb-modal-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--pink-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--pink-primary);
+        }
+        .fb-modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .fb-modal-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .fb-modal-socials {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .fb-social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--pink-primary);
+            color: white;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.3px;
+        }
+        .fb-social-link:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+        }
+        .fb-modal-content .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            float: none;
+            margin: 0;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: #E174A8;
@@ -724,6 +814,10 @@
             color: rgba(255,255,255,0.75);
             transition: 0.3s;
             cursor: pointer;
+        }
+        .footer-social a {
+            display: inline-block;
+            color: inherit;
         }
         .footer-social i:hover {
             color: #FFFFFF;
@@ -775,6 +869,8 @@
             .prod-card .prod-content h4 { font-size: 0.9rem; }
             .prod-card .prod-price { font-size: 0.9rem; }
             .prod-card .prod-desc { font-size: 0.75rem; }
+            .fb-modal-content { padding: 36px 24px 28px; }
+            .fb-modal-content h3 { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -1006,9 +1102,9 @@
                     <img src="images/logo1.jpg" style="max-height:40px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1);" alt="logo" />
                     <p style="max-width:240px;">Premium gifting and florist boutique in Pretoria East.</p>
                     <div class="footer-social" style="margin-top:18px;">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-tiktok"></i>
-                        <i class="fab fa-facebook"></i>
+                        <a href="https://www.instagram.com/thegiftpantryflorist?stkn=ZnloZDE4YzY4bGU4" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@the.gift.pantry.f?_r=1&_t=ZS-99clnvWsrY8" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" onclick="openFbModal(); return false;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 <div>
@@ -1046,6 +1142,24 @@
             <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
             <h2 id="modalTitle">Terms & Conditions</h2>
             <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ===== FACEBOOK COMING SOON MODAL ===== -->
+    <div class="fb-modal" id="fbModal">
+        <div class="fb-modal-content">
+            <button class="close-modal" onclick="closeFbModal()"><i class="fas fa-times"></i></button>
+            <div class="fb-modal-icon"><i class="fab fa-facebook-f"></i></div>
+            <h3>We're Not on Facebook Yet</h3>
+            <p>We're growing our social family one step at a time. Follow us on Instagram and TikTok in the meantime for all our latest creations!</p>
+            <div class="fb-modal-socials">
+                <a href="https://www.instagram.com/thegiftpantryflorist?stkn=ZnloZDE4YzY4bGU4" target="_blank" rel="noopener" class="fb-social-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@the.gift.pantry.f?_r=1&_t=ZS-99clnvWsrY8" target="_blank" rel="noopener" class="fb-social-link">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+            </div>
         </div>
     </div>
 
@@ -1184,6 +1298,21 @@
 
         document.getElementById('termsModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
+        });
+
+        // ===== FACEBOOK COMING SOON MODAL =====
+        function openFbModal() {
+            document.getElementById('fbModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFbModal() {
+            document.getElementById('fbModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('fbModal').addEventListener('click', function(e) {
+            if (e.target === this) closeFbModal();
         });
 
         // ===== NAVBAR SHADOW ON SCROLL =====
