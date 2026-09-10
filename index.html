@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>The Gift Pantry & Florist · Home</title>
+    <link rel="icon" type="image/jpeg" href="images/logo2.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
@@ -166,6 +167,105 @@
         }
 
         /* ======================================== */
+        /* ===== FRESHNESS NOTICE POPUP ===== */
+        /* ======================================== */
+        .notice-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 300;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .notice-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+        .notice-popup {
+            position: relative;
+            max-width: 380px;
+            width: 100%;
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-pink);
+            border-radius: 20px;
+            padding: 28px 44px 26px 26px;
+            box-shadow: 0 24px 64px rgba(217, 47, 120, 0.22);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .notice-overlay.show .notice-popup {
+            transform: scale(1) translateY(0);
+        }
+        .notice-popup .notice-icon {
+            color: var(--pink-primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--pink-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+        .notice-popup p {
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            font-weight: 400;
+            line-height: 1.55;
+            margin: 0;
+            letter-spacing: 0.15px;
+        }
+        .notice-popup p strong {
+            color: var(--pink-primary);
+            font-weight: 600;
+        }
+        .notice-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: var(--pink-light);
+            color: var(--pink-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: 0.25s;
+            padding: 0;
+        }
+        .notice-close:hover {
+            background: var(--pink-primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+        @media (max-width: 480px) {
+            .notice-popup {
+                padding: 22px 38px 22px 20px;
+                max-width: 100%;
+            }
+            .notice-popup p { font-size: 0.82rem; }
+            .notice-popup .notice-icon { width: 34px; height: 34px; font-size: 0.95rem; }
+        }
+
+        /* ======================================== */
         /* ===== NAVBAR ===== */
         /* ======================================== */
         .navbar {
@@ -318,23 +418,6 @@
         }
         .mobile-menu a:last-child {
             border-bottom: none;
-        }
-        .mobile-menu .menu-sub {
-            padding-left: 36px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
-            border-bottom: none;
-            padding-top: 4px;
-            padding-bottom: 4px;
-        }
-        .mobile-menu .menu-sub i {
-            color: rgba(255,255,255,0.4);
-            font-size: 0.8rem;
-        }
-        .mobile-menu .menu-sub:hover {
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding-left: 42px;
         }
 
         /* ======================================== */
@@ -1170,6 +1253,17 @@
 </head>
 <body>
 
+    <!-- ===== FRESHNESS NOTICE POPUP ===== -->
+    <div class="notice-overlay" id="noticeOverlay">
+        <div class="notice-popup">
+            <button class="notice-close" onclick="closeNotice()" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="notice-icon"><i class="fas fa-seedling"></i></div>
+            <p>To ensure your bouquet is fresh and beautifully prepared, we recommend ordering at least <strong>one day in advance</strong>.</p>
+        </div>
+    </div>
+
     <!-- ===== NAV ===== -->
     <nav class="navbar">
         <div class="container nav-inner">
@@ -1191,9 +1285,9 @@
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html"><i class="fas fa-home"></i> Home</a>
             <a href="catalogue.html"><i class="fas fa-gift"></i> Catalogue</a>
-            <a href="catalogue.html#hampers" class="menu-sub"><i class="fas fa-box"></i> Hampers</a>
-            <a href="catalogue.html#flowers" class="menu-sub"><i class="fas fa-seedling"></i> Flowers</a>
-            <a href="catalogue.html#mixed" class="menu-sub"><i class="fas fa-palette"></i> Mixed</a>
+            <a href="catalogue.html#hampers"><i class="fas fa-box"></i> Hampers</a>
+            <a href="catalogue.html#flowers"><i class="fas fa-seedling"></i> Flowers</a>
+            <a href="catalogue.html#mixed"><i class="fas fa-palette"></i> Mixed</a>
             <a href="order.html"><i class="fas fa-envelope"></i> Contact</a>
             <a href="#" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
         </div>
@@ -1207,12 +1301,12 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-animate-left hero-badge-top">Premium Gifting Since 2026</div>
-            
+
             <h1 class="hero-animate-up">Beauty, <span class="pink-highlight">Curated.</span></h1>
             <p class="hero-subtitle hero-animate-up">Luxury flowers. Exceptional gifts. Effortlessly beautiful.</p>
             <div class="hero-divider hero-animate-up"></div>
             <p class="hero-animate-up">Curated with elegance, crafted with intention, and made to leave a lasting impression.</p>
-            
+
             <div class="hero-buttons hero-animate-right">
                 <a href="catalogue.html" class="shop-now-link">
                     Shop Our Collection <i class="fas fa-arrow-right"></i>
@@ -1537,6 +1631,38 @@
                 hamburger.classList.remove('open');
                 mobileMenu.classList.remove('open');
             });
+        });
+
+        // ===== FRESHNESS NOTICE POPUP (appears on scroll, once per session) =====
+        let noticeShown = false;
+
+        function showNotice() {
+            if (noticeShown) return;
+            noticeShown = true;
+            const overlay = document.getElementById('noticeOverlay');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNotice() {
+            const overlay = document.getElementById('noticeOverlay');
+            overlay.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            sessionStorage.setItem('freshnessNoticeSeen', 'true');
+        }
+
+        // Trigger popup after user scrolls down 200px
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 200 && !sessionStorage.getItem('freshnessNoticeSeen')) {
+                showNotice();
+            }
+        });
+
+        // Close if user clicks outside the popup box
+        document.getElementById('noticeOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeNotice();
+            }
         });
 
         // ===== FAQ TOGGLE =====
