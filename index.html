@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ===== ALL PREVIOUS STYLES REMAIN THE SAME ===== */
         * {
             margin: 0;
             padding: 0;
@@ -257,10 +256,7 @@
             transform: rotate(90deg);
         }
         @media (max-width: 480px) {
-            .notice-popup {
-                padding: 22px 38px 22px 20px;
-                max-width: 100%;
-            }
+            .notice-popup { padding: 22px 38px 22px 20px; max-width: 100%; }
             .notice-popup p { font-size: 0.82rem; }
             .notice-popup .notice-icon { width: 34px; height: 34px; font-size: 0.95rem; }
         }
@@ -561,7 +557,6 @@
             height: 100%;
             object-fit: cover;
         }
-        /* ===== STRONGER OVERLAY FOR TEXT READABILITY ===== */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -637,7 +632,6 @@
             justify-content: center;
         }
 
-        /* ===== SHOP NOW BUTTON - SMALL BORDERED TEXT ===== */
         .shop-now-link {
             display: inline-flex;
             align-items: center;
@@ -682,7 +676,7 @@
         }
 
         /* ======================================== */
-        /* ===== ALL OTHER SECTIONS (unchanged) ===== */
+        /* ===== OTHER SECTIONS ===== */
         /* ======================================== */
 
         .benefit-grid {
@@ -713,9 +707,7 @@
             opacity: 0;
             transition: 0.4s;
         }
-        .benefit-item:hover::before {
-            opacity: 1;
-        }
+        .benefit-item:hover::before { opacity: 1; }
         .benefit-item:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
@@ -727,9 +719,7 @@
             margin-bottom: 10px;
             transition: 0.3s;
         }
-        .benefit-item:hover i {
-            color: var(--pink-dark);
-        }
+        .benefit-item:hover i { color: var(--pink-dark); }
         .benefit-item strong {
             font-weight: 600;
             color: var(--text-primary);
@@ -776,9 +766,7 @@
             object-fit: cover;
             transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .cat-card:hover img {
-            transform: scale(1.06);
-        }
+        .cat-card:hover img { transform: scale(1.06); }
         .cat-label {
             padding: 24px 24px 28px;
             text-align: center;
@@ -829,9 +817,7 @@
             opacity: 0;
             transition: 0.4s;
         }
-        .prod-card:hover::after {
-            opacity: 1;
-        }
+        .prod-card:hover::after { opacity: 1; }
         .prod-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
@@ -842,12 +828,8 @@
             object-fit: cover;
             transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .prod-card:hover img {
-            transform: scale(1.05);
-        }
-        .prod-card .prod-content {
-            padding: 22px 24px 28px;
-        }
+        .prod-card:hover img { transform: scale(1.05); }
+        .prod-card .prod-content { padding: 22px 24px 28px; }
         .prod-card .prod-content h4 {
             color: var(--text-primary);
             font-weight: 600;
@@ -970,19 +952,18 @@
             font-size: 1.8rem;
             margin: 18px 0 22px;
         }
-        .social-icons i {
+        .social-icons a {
             color: var(--pink-primary);
             transition: 0.3s;
             cursor: pointer;
+            display: inline-flex;
         }
-        .social-icons i:hover {
+        .social-icons a:hover {
             color: var(--pink-dark);
             transform: translateY(-4px);
         }
 
-        .faq-section {
-            margin: 56px 0 44px;
-        }
+        .faq-section { margin: 56px 0 44px; }
         .faq-item {
             background: var(--white);
             border-radius: var(--radius-sm);
@@ -1007,16 +988,12 @@
             color: var(--text-primary);
             letter-spacing: 0.2px;
         }
-        .faq-question:hover {
-            background: var(--pink-light);
-        }
+        .faq-question:hover { background: var(--pink-light); }
         .faq-question i {
             transition: 0.3s;
             color: var(--pink-primary);
         }
-        .faq-question.open i {
-            transform: rotate(180deg);
-        }
+        .faq-question.open i { transform: rotate(180deg); }
         .faq-answer {
             padding: 0 26px 22px;
             color: var(--text-secondary);
@@ -1024,10 +1001,9 @@
             font-weight: 300;
             line-height: 1.8;
         }
-        .faq-answer.open {
-            display: block;
-        }
+        .faq-answer.open { display: block; }
 
+        /* ===== TERMS MODAL ===== */
         .terms-modal {
             display: none;
             position: fixed;
@@ -1042,9 +1018,7 @@
             justify-content: center;
             padding: 20px;
         }
-        .terms-modal.open {
-            display: flex;
-        }
+        .terms-modal.open { display: flex; }
         .terms-content {
             background: var(--white);
             max-width: 720px;
@@ -1056,17 +1030,9 @@
             box-shadow: 0 24px 64px rgba(0,0,0,0.15);
             position: relative;
         }
-        .terms-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        .terms-content::-webkit-scrollbar-track {
-            background: #f0e8e5;
-            border-radius: 10px;
-        }
-        .terms-content::-webkit-scrollbar-thumb {
-            background: var(--pink-primary);
-            border-radius: 10px;
-        }
+        .terms-content::-webkit-scrollbar { width: 6px; }
+        .terms-content::-webkit-scrollbar-track { background: #f0e8e5; border-radius: 10px; }
+        .terms-content::-webkit-scrollbar-thumb { background: var(--pink-primary); border-radius: 10px; }
         .terms-content h2 {
             font-weight: 600;
             font-size: 1.6rem;
@@ -1102,12 +1068,104 @@
             justify-content: center;
             margin-bottom: 12px;
             z-index: 10;
+            color: var(--pink-primary);
         }
         .close-modal:hover {
             background: var(--pink-primary);
             color: white;
         }
 
+        /* ===== FACEBOOK COMING SOON MODAL ===== */
+        .fb-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .fb-modal.open { display: flex; }
+        .fb-modal-content {
+            background: var(--white);
+            max-width: 440px;
+            width: 100%;
+            border-radius: var(--radius);
+            padding: 44px 36px 36px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+            text-align: center;
+            position: relative;
+            animation: fbPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fbPopIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .fb-modal-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--pink-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--pink-primary);
+        }
+        .fb-modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .fb-modal-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .fb-modal-socials {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .fb-social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--pink-primary);
+            color: white;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.3px;
+        }
+        .fb-social-link:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+        }
+        .fb-modal-content .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            float: none;
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
         .footer {
             background: #E174A8;
             padding: 56px 0 28px;
@@ -1155,6 +1213,10 @@
             color: rgba(255,255,255,0.75);
             transition: 0.3s;
             cursor: pointer;
+        }
+        .footer-social a {
+            display: inline-block;
+            color: inherit;
         }
         .footer-social i:hover {
             color: #FFFFFF;
@@ -1248,6 +1310,8 @@
             .section-title { font-size: 1.8rem; }
             .step-item { padding: 20px; }
             .step-num { font-size: 1.8rem; min-width: 40px; }
+            .fb-modal-content { padding: 36px 24px 28px; }
+            .fb-modal-content h3 { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -1315,10 +1379,7 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== BENEFIT STRIP ===== -->
-    <!-- ======================================== -->
-
     <div class="container benefit-grid">
         <div class="benefit-item reveal-left d1">
             <i class="fas fa-gift float-icon"></i>
@@ -1338,10 +1399,7 @@
         </div>
     </div>
 
-    <!-- ======================================== -->
     <!-- ===== BROWSE CATEGORIES ===== -->
-    <!-- ======================================== -->
-
     <section class="container" style="margin: 34px 0 44px;">
         <div class="reveal-up d1"><span class="section-eyebrow">Browse our collection</span></div>
         <h2 class="reveal-up d2 section-title">Find something <span class="highlight">beautiful</span></h2>
@@ -1376,10 +1434,7 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== CURATED SELECTION ===== -->
-    <!-- ======================================== -->
-
     <section class="container" style="margin: 34px 0 44px;">
         <div class="reveal-up d1"><span class="section-eyebrow">Curated selection</span></div>
         <h2 class="reveal-up d2 section-title">Our <span class="highlight">favourites</span></h2>
@@ -1425,10 +1480,7 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== HOW IT WORKS ===== -->
-    <!-- ======================================== -->
-
     <section class="container" style="margin: 34px 0 44px;">
         <h2 class="reveal-up d1 section-title" style="font-size: 1.8rem;">How it <span class="highlight">works</span></h2>
         <div class="section-divider reveal-scale d2"></div>
@@ -1451,10 +1503,7 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== FAQ SECTION ===== -->
-    <!-- ======================================== -->
-
     <section class="container faq-section">
         <h2 class="reveal-up d1 section-title" style="font-size: 1.6rem; margin-bottom: 6px;">Frequently Asked <span class="highlight">Questions</span></h2>
         <div class="section-divider reveal-scale d2"></div>
@@ -1533,18 +1582,15 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== SOCIAL ===== -->
-    <!-- ======================================== -->
-
     <section class="container" style="margin: 34px 0 44px;">
         <h2 class="reveal-up d1 section-title" style="font-size: 1.6rem;">Follow <span class="highlight">The Gift Pantry</span></h2>
         <div class="section-divider reveal-scale d2"></div>
         <p class="reveal-up d3" style="color: var(--text-secondary); font-weight:300;">Discover our latest creations, gift inspiration and behind-the-scenes moments.</p>
         <div class="social-icons reveal-up d4">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-tiktok"></i>
-            <i class="fab fa-facebook"></i>
+            <a href="https://www.instagram.com/thegiftpantryflorist?stkn=ZnloZDE4YzY4bGU4" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@the.gift.pantry.f?_r=1&_t=ZS-99clnvWsrY8" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" onclick="openFbModal(); return false;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="social-grid">
             <img src="images/pic7.jpg" class="bounce-item" />
@@ -1556,10 +1602,7 @@
         </div>
     </section>
 
-    <!-- ======================================== -->
     <!-- ===== FOOTER ===== -->
-    <!-- ======================================== -->
-
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1567,9 +1610,9 @@
                     <img src="images/logo1.jpg" style="max-height:40px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1);" alt="logo" />
                     <p style="max-width:240px;">Premium gifting and florist boutique in Pretoria East.</p>
                     <div class="footer-social" style="margin-top:18px;">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-tiktok"></i>
-                        <i class="fab fa-facebook"></i>
+                        <a href="https://www.instagram.com/thegiftpantryflorist?stkn=ZnloZDE4YzY4bGU4" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@the.gift.pantry.f?_r=1&_t=ZS-99clnvWsrY8" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" onclick="openFbModal(); return false;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 <div>
@@ -1612,6 +1655,24 @@
         </div>
     </div>
 
+    <!-- ===== FACEBOOK COMING SOON MODAL ===== -->
+    <div class="fb-modal" id="fbModal">
+        <div class="fb-modal-content">
+            <button class="close-modal" onclick="closeFbModal()"><i class="fas fa-times"></i></button>
+            <div class="fb-modal-icon"><i class="fab fa-facebook-f"></i></div>
+            <h3>We're Not on Facebook Yet</h3>
+            <p>We're growing our social family one step at a time. Follow us on Instagram and TikTok in the meantime for all our latest creations!</p>
+            <div class="fb-modal-socials">
+                <a href="https://www.instagram.com/thegiftpantryflorist?stkn=ZnloZDE4YzY4bGU4" target="_blank" rel="noopener" class="fb-social-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@the.gift.pantry.f?_r=1&_t=ZS-99clnvWsrY8" target="_blank" rel="noopener" class="fb-social-link">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== FLOATING WHATSAPP ===== -->
     <a href="#" onclick="openWhatsApp()" class="float-wa" aria-label="Chat with us"><i class="fab fa-whatsapp"></i></a>
 
@@ -1639,30 +1700,24 @@
         function showNotice() {
             if (noticeShown) return;
             noticeShown = true;
-            const overlay = document.getElementById('noticeOverlay');
-            overlay.classList.add('show');
+            document.getElementById('noticeOverlay').classList.add('show');
             document.body.style.overflow = 'hidden';
         }
 
         function closeNotice() {
-            const overlay = document.getElementById('noticeOverlay');
-            overlay.classList.remove('show');
+            document.getElementById('noticeOverlay').classList.remove('show');
             document.body.style.overflow = 'auto';
             sessionStorage.setItem('freshnessNoticeSeen', 'true');
         }
 
-        // Trigger popup after user scrolls down 200px
         window.addEventListener('scroll', function() {
             if (window.scrollY > 200 && !sessionStorage.getItem('freshnessNoticeSeen')) {
                 showNotice();
             }
         });
 
-        // Close if user clicks outside the popup box
         document.getElementById('noticeOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeNotice();
-            }
+            if (e.target === this) closeNotice();
         });
 
         // ===== FAQ TOGGLE =====
@@ -1773,6 +1828,21 @@
             if (e.target === this) {
                 closeModal();
             }
+        });
+
+        // ===== FACEBOOK COMING SOON MODAL =====
+        function openFbModal() {
+            document.getElementById('fbModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFbModal() {
+            document.getElementById('fbModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('fbModal').addEventListener('click', function(e) {
+            if (e.target === this) closeFbModal();
         });
 
         // ===== NAVBAR SHADOW ON SCROLL =====
